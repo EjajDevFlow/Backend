@@ -50,7 +50,10 @@ export const uploadFile = async (req, res) => {
     }
 
     // Create URL for the uploaded file
-    const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    const BASE_URL = process.env.BASE_URL; // Your backend URL
+
+const fileUrl = `${BASE_URL}/uploads/${req.file.filename}`;
+
     
     console.log('File uploaded successfully:', {
       originalName: req.file.originalname,
